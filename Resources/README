@@ -1,0 +1,15 @@
+ColorSeeker
+===========
+
+A simple demo application to seek colors's decimal/hex numeric form
+as well as to produce a code snippet corresponding to the sought color
+to insert it somewhere else via the pasteboard.
+
+
+Installation
+------------
+
+# make
+# make install
+# openapp ColorSeeker
+

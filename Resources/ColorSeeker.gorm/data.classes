@@ -1,0 +1,43 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    AppController = {
+	Actions = (
+	    "showPrefPanel:"
+	);
+	Outlets = (
+	    wcontroller
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "copyToClipboard:",
+	    "orderFrontFontPanel:",
+	    "showPrefPanel:",
+	    "showText:",
+	    "update:",
+	    "updateA:",
+	    "updateB:",
+	    "updateG:",
+	    "updateR:"
+	);
+	Super = NSObject;
+    };
+    WindowController = {
+	Actions = (
+	    "showText:",
+	    "update:",
+	    "copyToClipboard:"
+	);
+	Outlets = (
+	    rSlider,
+	    gSlider,
+	    bSlider,
+	    aSlider,
+	    textArea,
+	    colorBox,
+	    clipboardButton
+	);
+	Super = NSWindowController;
+    };
+}
