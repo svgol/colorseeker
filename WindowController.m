@@ -43,7 +43,9 @@
   int ib = [self intValue255: b];
   int ia = [self intValue255: a];
   
-  NSString *hex = [NSString stringWithFormat: @"// hex: %.2X %.2X %.2X %.2X ( %.2X%.2X%.2X%.2X )\n", ir, ig, ib, ia, ir, ig, ib, ia];
+  NSString *hex = [NSString stringWithFormat:
+           @"// hex: %.2X %.2X %.2X %.2X ( %.2X%.2X%.2X%.2X )\n",
+           ir, ig, ib, ia, ir, ig, ib, ia];
   NSString *decimal = [NSString stringWithFormat: @"// decimal: %i %i %i %i\n", ir, ig, ib, ia];
   NSString *comment = [NSString stringWithFormat: @"// RGBA:\n%@%@", 
        hex, decimal];
