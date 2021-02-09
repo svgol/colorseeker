@@ -51,6 +51,7 @@
 
 - (void)windowDidBecomeKey:(NSNotification *)aNotification;
 - (void)windowDidUpdate:(NSNotification *)aNotification;
+- (void)windowDidLoad;
 
 @end
 

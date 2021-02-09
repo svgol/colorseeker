@@ -64,6 +64,7 @@
 {
 // Uncomment if your application is Renaissance-based
 //  [NSBundle loadGSMarkupNamed: @"Main" owner: self];
+  [wcontroller update: self];
 }
 
 - (BOOL) applicationShouldTerminate: (id)sender

@@ -43,10 +43,7 @@
   int ib = [self intValue255: b];
   int ia = [self intValue255: a];
   
-  NSString *hex = [NSString stringWithFormat: 
-           @"// hex: %.2X %.2X %.2X %.2X ( %.2X%.2X%.2X%.2X )\n", 
-                      ir, ig, ib, ia, ir, ig, ib, ia];
-                      
+  NSString *hex = [NSString stringWithFormat: @"// hex: %.2X %.2X %.2X %.2X ( %.2X%.2X%.2X%.2X )\n", ir, ig, ib, ia, ir, ig, ib, ia];
   NSString *decimal = [NSString stringWithFormat: @"// decimal: %i %i %i %i\n", ir, ig, ib, ia];
   NSString *comment = [NSString stringWithFormat: @"// RGBA:\n%@%@", 
        hex, decimal];
@@ -55,7 +52,7 @@
   NSString *text = [NSString stringWithFormat: @"%@\n%@", comment, code];
   [textArea setText: text];
 
-  //NSLog(@"%@",[NSGraphicsContext currentContext]);
+  NSLog(@"%@",[NSGraphicsContext currentContext]);
   
   [colorBox lockFocus];
   NSRect rect = [colorBox bounds]; // -[frame] produces a different rect
@@ -67,6 +64,11 @@
 
 - (IBAction)update:(id)sender
 {
+  [rSlider setFloatValue: 0.3];
+  [gSlider setFloatValue: 0.4];
+  [bSlider setFloatValue: 0.5];
+  [aSlider setFloatValue: 1.0];
+
   [self showText: sender];
 }
 
@@ -84,13 +86,19 @@
   [self showText: self];
 }
 
+// window controller
+- (void)windowDidLoad
+{
+  NSLog(@"DidLoad");
+}
+
 // temporary... just to show the bug/feature (to be removed)
 int _update = 0; 
 
 - (void)windowDidUpdate:(NSNotification *)aNotification
 {
-  // the threshold when mostly works and mostly doesn't work can vary
-  // on my system less than 4 doesn't work at all, 10 or greater mostly works, only occasionally doesn't
+  // the threshold when mostly works and mostly doesn't work can vary...
+  // on my system less than 4 doesn't work at all, 8 or greater mostly works, only occasionally doesn't
   if (_update < 4) { 
     [self showText: self];
     _update++;
