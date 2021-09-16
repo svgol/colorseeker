@@ -50,12 +50,14 @@
   NSString *comment = [NSString stringWithFormat: @"// RGBA:\n%@%@", 
        hex, decimal];
   NSString *code = [NSString stringWithFormat:
-  @"[NSColor colorWithDeviceRed: %f\n\tgreen: %f\n\tblue: %f\n\talpha: %f]", r, g, b, a];
+			       @"[NSColor colorWithDeviceRed: %f\n\tgreen: %f\n\tblue: %f\n\talpha: %f]", r, g, b, a];
   NSString *text = [NSString stringWithFormat: @"%@\n%@", comment, code];
   [textArea setText: text];
 
   NSLog(@"%@",[NSGraphicsContext currentContext]);
-  
+
+  //  [colorBox setFillColor: [NSColor colorWithDeviceRed: r green: g blue: b alpha: a]];
+
   [colorBox lockFocus];
   NSRect rect = [colorBox bounds]; // -[frame] produces a different rect
   NSColor *color = [NSColor colorWithDeviceRed: r green: g blue: b alpha: a];
@@ -66,11 +68,6 @@
 
 - (IBAction)update:(id)sender
 {
-  [rSlider setFloatValue: 0.3];
-  [gSlider setFloatValue: 0.4];
-  [bSlider setFloatValue: 0.5];
-  [aSlider setFloatValue: 1.0];
-
   [self showText: sender];
 }
 
@@ -92,6 +89,23 @@
 - (void)windowDidLoad
 {
   NSLog(@"DidLoad");
+}
+
+- (void) awakeFromNib
+{
+  [rSlider setFloatValue: 0.3];
+  [gSlider setFloatValue: 0.4];
+  [bSlider setFloatValue: 0.5];
+  [aSlider setFloatValue: 1.0];
+
+  float r = [rSlider floatValue];
+  float g = [gSlider floatValue];
+  float b = [bSlider floatValue];
+  float a = [aSlider floatValue];
+
+  [colorBox setBoxType: NSBoxCustom];
+  [colorBox setBorderType: NSLineBorder];
+  [colorBox setFillColor: [NSColor colorWithDeviceRed: r green: g blue: b alpha: a]];
 }
 
 // temporary... just to show the bug/feature (to be removed)

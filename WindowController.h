@@ -50,9 +50,9 @@
 - (IBAction)copyToClipboard:(id)sender;
 
 - (void)windowDidBecomeKey:(NSNotification *)aNotification;
-- (void)windowDidUpdate:(NSNotification *)aNotification;
+//- (void)windowDidUpdate:(NSNotification *)aNotification;
 - (void)windowDidLoad;
-
+- (void)awakeFromNib;
 @end
 
 #endif // _WINDOWCONTROLLER_H_

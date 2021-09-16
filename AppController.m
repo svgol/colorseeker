@@ -58,6 +58,7 @@
 
 - (void) awakeFromNib
 {
+  
 }
 
 - (void) applicationDidFinishLaunching: (NSNotification *)aNotif
