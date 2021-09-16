@@ -44,11 +44,16 @@
   int ia = [self intValue255: a];
   
   NSString *hex = [NSString stringWithFormat:
-           @"// hex: %.2X %.2X %.2X %.2X ( %.2X%.2X%.2X%.2X )\n",
+           @"// hex: %.2X %.2X %.2X %.2X   ( %.2X%.2X%.2X%.2X )\n",
            ir, ig, ib, ia, ir, ig, ib, ia];
+  NSString *hex2 = [NSString stringWithFormat:
+           @"// hex: %.2X %.2X %.2X %.2X   ( %.2X%.2X%.2X%.2X )\n",
+			    ia, ir, ig, ib, ia, ir, ig, ib];
+  NSString *decimal2 = [NSString stringWithFormat: @"// decimal: %i %i %i %i\n", ia, ir, ig, ib];
+
   NSString *decimal = [NSString stringWithFormat: @"// decimal: %i %i %i %i\n", ir, ig, ib, ia];
-  NSString *comment = [NSString stringWithFormat: @"// RGBA:\n%@%@", 
-       hex, decimal];
+  NSString *comment = [NSString stringWithFormat: @"// RGBA:\n%@%@\n// ARGB:\n%@%@", 
+				hex, decimal, hex2, decimal2];
   NSString *code = [NSString stringWithFormat:
 			       @"[NSColor colorWithDeviceRed: %f\n\tgreen: %f\n\tblue: %f\n\talpha: %f]", r, g, b, a];
   NSString *text = [NSString stringWithFormat: @"%@\n%@", comment, code];
@@ -115,7 +120,7 @@ int _update = 0;
 {
   // the threshold when mostly works and mostly doesn't work can vary...
   // on my system less than 4 doesn't work at all, 8 or greater mostly works, only occasionally doesn't
-  if (_update < 4) { 
+  if (_update < 8) { 
     [self showText: self];
     _update++;
   }
